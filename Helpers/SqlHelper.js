@@ -7,13 +7,13 @@ exports.executeSql = function(sql, callback){
         var req = new sqlDB.Request(conn);
         req.query(sql).then(function(resultSet){
             conn.close();
-            callback(resultSet);
+            callback(null,resultSet);
         }).catch(function(error){
             console.log(error);
-            callback(null,error);
+            callback(error);
         });
     }).catch(function(error){
         console.log(error);
-        callback(null,error);
+        callback(error);
     });
 };

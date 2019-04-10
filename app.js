@@ -4,6 +4,23 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var path = require('path');
 
+///////////  START - use of Callback function ///////////
+var fs = require('fs');
+var data = fs.readFileSync('TEST.txt');
+
+console.log(data.toString());
+console.log('Blocking code called end');
+
+fs.readFile('TEST.txt',function(err,data){
+    if(err)
+        return console.log(err);
+     console.log(data.toString());
+});
+console.log('Non-Blocking code called end');
+///////////  END - use of Callback function ///////////
+
+
+
 var masterController = require('./Controller/MasterController')();
 
 app.set('port',process.env.port||4300);
