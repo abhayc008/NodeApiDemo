@@ -1,0 +1,59 @@
+        <div class="container">
+            <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Edit User</div>
+                    </div>  
+                    <div class="panel-body" >
+                        <form id="signupform" method="POST" action="/api/auth/updateUser" class="form-horizontal">
+                            
+                            
+                             {{# if errors }}
+                                {{# each errors }}
+                                    <p class="alert alert-danger">{{ this.msg }}</p>
+                                    {{!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div> --}}
+                                {{/each}}
+                            {{/if}}
+                                
+                                
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="_id" value="{{user._id}}" >
+                                <input type="hidden" class="form-control" name="password" value="{{user.password}}">
+                                <input type="hidden" class="form-control" name="confirmOTP" value="{{user.confirmOTP}}">
+                                 <label for="firstName" class="col-md-3 control-label">First Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" value="{{user.firstName}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="col-md-3 control-label">Last Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="{{user.lastName}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="col-md-3 control-label">Email</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="email" value="{{user.email}}" readonly/>
+                                </div> 
+                            </div>
+
+                           
+                            <div class="form-group">
+                                <!-- Button -->                                        
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Update User</button>                                     
+                                </div>
+                            </div>
+
+                        </form>
+                     </div>
+                </div>
+            
+     </div>
+        </div>
